@@ -16,3 +16,11 @@ docker.alpine.start() {
 docker.alpine.remove() {
   docker rm -f alpine
 }
+
+docker.alpine.exec() {
+  docker exec -t alpine "$@"
+}
+
+docker.alpine.minor.version() {
+  docker.alpine.exec cat /etc/alpine-release | cut -d. -f1,2
+}

@@ -2,8 +2,10 @@
 
 set -euo pipefail
 
+source "${BASH_LIBRARIES_DIR}/docker/alpine.sh"
+
 docker.alpine.apk() {
-  docker exec -t alpine apk "$@"
+  docker.alpine.exec apk "$@"
 }
 
 docker.alpine.apk.update() {
